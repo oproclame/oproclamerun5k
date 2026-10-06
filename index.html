@@ -39,21 +39,39 @@
   h1,h2,h3{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:1.3px;margin:0;}
   a{color:var(--green);}
 
-  /* -------- Sticky title header -------- */
+  /* -------- Sticky title header - REDESIGNED -------- */
   .site-header{
-    position:sticky; top:0; z-index:50;
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
-    padding:22px 0 16px;
+    position:sticky; 
+    top:0; 
+    z-index:50;
+    background:linear-gradient(180deg, var(--bg) 0%, rgba(11,11,12,0.95) 100%);
+    border-bottom:2px solid rgba(207,255,26,0.25);
+    padding:28px 0 24px;
   }
   h1.title{
-    font-size: clamp(32px,12vw,62px);
-    line-height:0.95;
-    white-space:nowrap;
-    letter-spacing:0.5px;
+    font-size: clamp(42px,14vw,74px);
+    line-height:1.0;
+    letter-spacing:1.2px;
+    margin:0 0 8px;
+    background:linear-gradient(135deg, var(--white) 0%, rgba(244,244,242,0.95) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    font-weight:900;
   }
-  h1.title .run{color:var(--green);margin-left:10px;}
-  .verse{color:var(--white);opacity:0.65;font-size:13px;font-weight:600;margin-top:8px;letter-spacing:0.3px;}
+  h1.title .run{
+    color:var(--green);
+    filter:drop-shadow(0 0 8px rgba(207,255,26,0.4));
+    display:inline-block;
+  }
+  .verse{
+    color:var(--white);
+    font-size:13px;
+    font-weight:700;
+    margin:12px 0 0;
+    letter-spacing:1px;
+    opacity:0.95;
+  }
 
   /* -------- Hero -------- */
   .hero{
@@ -423,7 +441,9 @@
   @media (max-width: 480px){
     .kit-strip{grid-template-columns:1fr;}
     .kit-item img{height:260px;}
-    h1.title{white-space:normal;}
+    h1.title{
+      font-size: clamp(32px,12vw,52px);
+    }
     .logo-fixed{
       width:40px;
       height:40px;
@@ -438,8 +458,8 @@
 <div class="bg-layer"><div class="photo"></div><div class="wash"></div></div>
 
 <div class="site-header wrap">
-  <h1 class="title">O PROCLAME<span class="run">RUN</span></h1>
-  <p class="verse">1 Coríntios 9. 24-25</p>
+  <h1 class="title">O PROCLAME <span class="run">RUN</span></h1>
+  <p class="verse">1 Coríntios 9:24-25</p>
 </div>
 
 <div class="hero wrap">
