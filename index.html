@@ -44,13 +44,14 @@
   .bib-grid .item .k{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;font-weight:600;}
   .bib-grid .item .v{font-size:17px;font-weight:700;margin-top:3px;}
   .map-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding-left:14px;font-size:13px;font-weight:700;color:var(--green);text-decoration:none;}
-  .kit-section{background:linear-gradient(135deg, rgba(207,255,26,0.08) 0%, rgba(207,255,26,0.02) 100%);border:2px solid rgba(207,255,26,0.25);border-radius:16px;padding:20px;margin-top:22px;box-shadow:0 0 20px rgba(207,255,26,0.1) inset;}
+  .kit-section{background:linear-gradient(135deg, rgba(207,255,26,0.08) 0%, rgba(207,255,26,0.02) 100%);border:2px solid rgba(207,255,26,0.25);border-radius:16px;padding:20px;margin-top:22px;box-shadow:0 20px 44px rgba(0,0,0,0.12);}
   .kit-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
   .kit-item{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.28);transition:all .22s cubic-bezier(0.34, 1.56, 0.64, 1);position:relative;}
-  .kit-item::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg, rgba(207,255,26,0.15) 0%, transparent 50%);opacity:0;transition:opacity .22s ease;pointer-events:none;z-index:2;}
+  .kit-item::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg, rgba(207,255,26,0.15) 0%, transparent 50%);opacity:0;transition:opacity .22s ease;pointer-events:none;}
   .kit-item:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(207,255,26,0.5);box-shadow:0 18px 40px rgba(207,255,26,0.18), 0 0 30px rgba(207,255,26,0.12);}
   .kit-item:hover::before{opacity:1;}
   .kit-item img{width:100%;height:240px;object-fit:cover;display:block;cursor:zoom-in;background:var(--panel-2);transition:transform .22s ease;}
+  .kit-item.shirt-item img{object-fit:contain;background:#050505;padding:10px 6px;}
   .kit-item:hover img{transform:scale(1.04);}
   .kit-item .cap{padding:12px 14px 14px;font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);}
   .lightbox{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;padding:30px;cursor:zoom-out;backdrop-filter:blur(4px);}
@@ -58,7 +59,7 @@
   .lightbox img{max-width:100%;max-height:85vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6);}
   .lightbox .close-x{position:absolute;top:18px;right:20px;color:var(--white);font-size:28px;font-weight:700;cursor:pointer;transition:transform .2s;}
   .lightbox .close-x:hover{transform:scale(1.2);}
-  .logo-fixed{position:fixed;bottom:18px;right:18px;width:72px;height:72px;z-index:40;opacity:1;transition:all .3s ease;border-radius:16px;padding:8px;background:rgba(11,11,12,0.18);box-shadow:0 8px 22px rgba(0,0,0,0.25);backdrop-filter:blur(4px);}
+  .logo-fixed{position:fixed;bottom:18px;right:18px;width:72px;height:72px;z-index:40;opacity:1;transition:all .3s ease;border-radius:16px;padding:8px;background:rgba(11,11,12,0.18);box-shadow:0 8px 20px rgba(0,0,0,0.22);}
   .logo-fixed:hover{opacity:1;transform:scale(1.08);box-shadow:0 12px 26px rgba(0,0,0,0.3);}
   .logo-fixed img{width:100%;height:100%;object-fit:contain;display:block;filter:brightness(0) invert(1);-webkit-filter:brightness(0) invert(1);}
   section{padding:34px 0;border-bottom:1px solid var(--line);}
@@ -75,7 +76,7 @@
   .field{margin-bottom:18px;}
   .field > label{display:block;font-weight:700;font-size:13px;margin-bottom:12px;}
   .field .hint{color:var(--gray);font-weight:500;}
-  input[type=text],input[type=tel],input[type=number],select,textarea{width:100%;background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;transition:all .2s ease;}
+  input[type=text],input[type=tel],input[type=number],select,textarea{width:100%;background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;}
   input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 12px rgba(207,255,26,0.2);}
   select{appearance:none;}
   .pills{display:flex;gap:10px;}
@@ -91,10 +92,10 @@
   .error-msg{color:#FF6B5E;font-size:12px;font-weight:700;margin-top:6px;display:none;}
   .field.invalid .error-msg{display:block;}
   .field.invalid input,.field.invalid select,.field.invalid .terms-box{border-color:#FF6B5E;}
-  .total-bar{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg, var(--panel-2) 0%, var(--panel) 100%);border:2px solid rgba(207,255,26,0.25);border-radius:12px;padding:14px 18px;margin:20px 0;box-shadow:0 0 16px rgba(207,255,26,0.08);}
+  .total-bar{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg, var(--panel-2) 0%, var(--panel) 100%);border:2px solid rgba(207,255,26,0.25);border-radius:12px;padding:14px 16px;}
   .total-bar .label{font-size:13px;color:var(--gray);font-weight:600;}
   .total-bar .val{font-family:'Anton',sans-serif;color:var(--green);font-size:26px;font-weight:800;}
-  .submit-btn{width:100%;background:linear-gradient(135deg, var(--green) 0%, #B8E817 100%);color:#0B0B0C;border:none;padding:16px;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;transition:all .2s ease;box-shadow:0 8px 20px rgba(207,255,26,0.25);}
+  .submit-btn{width:100%;background:linear-gradient(135deg, var(--green) 0%, #B8E817 100%);color:#0B0B0C;border:none;padding:16px;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;transition:all .2s ease;}
   .submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(207,255,26,0.35);filter:brightness(1.08);}
   .submit-btn:active{transform:translateY(0);}
   ul.plain{padding-left:18px;margin:0;color:var(--gray);font-size:14px;line-height:1.7;}
@@ -103,24 +104,24 @@
   .info-card:hover{border-color:rgba(207,255,26,0.25);box-shadow:0 0 16px rgba(207,255,26,0.08);}
   .info-card h3{font-size:16px;margin-bottom:8px;}
   .info-card p{color:var(--gray);font-size:14px;margin:0;}
-  .gym-btn{display:inline-block;margin-top:10px;background:linear-gradient(135deg, var(--green) 0%, #B8E817 100%);color:#0B0B0C;font-weight:800;font-size:13px;padding:10px 16px;border-radius:999px;text-decoration:none;transition:all .2s ease;box-shadow:0 4px 12px rgba(207,255,26,0.2);}
+  .gym-btn{display:inline-block;margin-top:10px;background:linear-gradient(135deg, var(--green) 0%, #B8E817 100%);color:#0B0B0C;font-weight:800;font-size:13px;padding:10px 16px;border-radius:999px;text-decoration:none;transition:all .2s ease;}
   .gym-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(207,255,26,0.3);}
   .confirm{display:none;padding:34px 0;}
   .confirm.show{display:block;}
   form.hide{display:none;}
-  .stamp{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg, var(--green) 0%, #B8E817 100%);color:#0B0B0C;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;margin-bottom:16px;box-shadow:0 8px 20px rgba(207,255,26,0.3);}
+  .stamp{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg, var(--green) 0%, #B8E817 100%);color:#0B0B0C;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;}
   .summary{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:18px 0;font-size:14px;}
   .summary div{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);}
   .summary div:last-child{border-bottom:none;}
   .summary .k{color:var(--gray);font-weight:600;}
   .summary .v{font-weight:700;text-align:right;}
-  .pix-box{background:linear-gradient(135deg, var(--panel-2) 0%, var(--panel) 100%);border:2px solid var(--green);border-radius:12px;padding:16px 18px;margin:18px 0;box-shadow:0 0 20px rgba(207,255,26,0.15);}
+  .pix-box{background:linear-gradient(135deg, var(--panel-2) 0%, var(--panel) 100%);border:2px solid var(--green);border-radius:12px;padding:16px 18px;margin:18px 0;box-shadow:0 0 20px rgba(207,255,26,0.08);}
   .pix-box .k{font-size:12px;color:var(--gray);font-weight:700;letter-spacing:0.5px;}
   .pix-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;}
   .pix-row span.key{font-weight:800;font-size:16px;color:var(--green);}
   .copy-btn{background:transparent;border:1px solid var(--green);color:var(--green);font-weight:700;font-size:12px;padding:7px 12px;border-radius:999px;cursor:pointer;transition:all .2s ease;}
   .copy-btn:hover{background:rgba(207,255,26,0.1);transform:scale(1.05);}
-  .wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg, #25D366 0%, #1BAD4E 100%);color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:15px;border-radius:12px;margin:18px 0;transition:all .2s ease;box-shadow:0 8px 20px rgba(37,211,102,0.25);}
+  .wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg, #25D366 0%, #1BAD4E 100%);color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:14px 18px;border-radius:12px;transition:all .2s ease;}
   .wa-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,211,102,0.35);}
   .thanks{color:var(--green);font-weight:700;font-size:14px;margin-top:14px;}
   .again-btn{background:none;border:none;color:var(--gray);font-weight:700;font-size:13px;text-decoration:underline;cursor:pointer;transition:color .2s ease;}
@@ -155,7 +156,7 @@
     <div class="kit-strip">
       <div class="kit-item"><img src="numero-peito.png" alt="Número de peito" onclick="openLightbox(this.src)"><div class="cap">Nº de peito</div></div>
       <div class="kit-item"><img src="medalha.jpg" alt="Medalha" onclick="openLightbox(this.src)"><div class="cap">Medalha</div></div>
-      <div class="kit-item"><img src="camiseta.jpg" alt="Camiseta oficial" onclick="openLightbox(this.src)"><div class="cap">Camiseta</div></div>
+      <div class="kit-item shirt-item"><img src="camiseta.jpg" alt="Camiseta oficial" onclick="openLightbox(this.src)"><div class="cap">Camiseta</div></div>
     </div>
   </div>
 </div>
@@ -166,16 +167,16 @@
     <div class="eyebrow">Inscrições</div>
     <h2 class="sec-title">Escolha seu lote</h2>
     <div class="lotes" id="lotes">
-      <div class="lote active" data-price="40" data-shirt="0"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito</span><span class="price">R$40</span></div><div class="lote-desc">Kit retirado em 21/11 na IAP Vila Maria ou no dia da corrida.</div></div>
-      <div class="lote" data-price="70" data-shirt="1"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito + Camiseta</span><span class="price">R$70</span></div><div class="lote-desc">Mesmo kit acima, com a camiseta oficial da prova.</div></div>
+      <div class="lote active" data-price="40" data-shirt="0"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito</span><span class="price">R$40</span></div><div class="lote-desc">Inscrição standard com medalha, lanche e número de peito.</div></div>
+      <div class="lote" data-price="70" data-shirt="1"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito + Camiseta</span><span class="price">R$70</span></div><div class="lote-desc">Inclui a camiseta oficial do evento em tamanho escolhido.</div></div>
     </div>
   </section>
   <section>
     <div class="eyebrow">Antes de se inscrever</div>
     <h2 class="sec-title">Regras, imagem e cancelamento</h2>
-    <div class="info-card"><h3>❓ Regras importantes</h3><ul class="plain"><li>Comparecer com 1 hora de antecedência no local da largada.</li><li>Proibido qualquer auxílio externo durante o percurso (bicicletas, pacing, etc.).</li><li>Será desclassificado o atleta que prejudicar outro competidor ou descumprir orientações da equipe médica.</li><li>Estar com a saúde em dia é responsabilidade exclusiva do participante.</li></ul></div>
-    <div class="info-card"><h3>📸 Direitos de imagem</h3><p>Ao participar, o atleta autoriza o uso gratuito de sua imagem e voz em fotos, vídeos e transmissões, para divulgação do evento em mídias sociais, TV, internet, entre outros.</p></div>
-    <div class="info-card"><h3>❌ Cancelamento de inscrição</h3><p>Reembolso integral em até 7 dias após a compra (conforme art. 49 do CDC). Após esse prazo, solicitações devem ser feitas diretamente à organização, sujeitas à análise e regras internas.</p></div>
+    <div class="info-card"><h3>❓ Regras importantes</h3><ul class="plain"><li>Comparecer com 1 hora de antecedência no local da largada.</li><li>Proibido qualquer auxílio externo durante o percurso, salvo regras específicas da categoria.</li><li>O uso de bicicletas ou veículos durante a prova será proibido.</li><li>As decisões do staff e da organização são finais em caso de infrações.</li></ul></div>
+    <div class="info-card"><h3>📸 Direitos de imagem</h3><p>Ao participar, o atleta autoriza o uso gratuito de sua imagem e voz em fotos, vídeos e transmissões, para divulgação do evento em mídias oficiais.</p></div>
+    <div class="info-card"><h3>❌ Cancelamento de inscrição</h3><p>Reembolso integral em até 7 dias após a compra (conforme art. 49 do CDC). Após esse prazo, solicitações devem ser feitas diretamente com a organização.</p></div>
   </section>
   <section>
     <div class="eyebrow">Formulário</div>
@@ -183,11 +184,11 @@
     <form id="form" novalidate>
       <div class="field" id="f-nome"><label>Nome completo</label><input type="text" id="nome" placeholder="Seu nome como sairá no número de peito"><div class="error-msg">Digite seu nome completo.</div></div>
       <div class="field" id="f-whats"><label>WhatsApp</label><input type="tel" id="whats" placeholder="11 9XXXX-XXXX"><div class="error-msg">Informe um WhatsApp válido.</div></div>
-      <div class="field" id="f-categoria"><label>Categoria</label><div class="pills"><label class="pill"><input type="radio" name="categoria" value="Geral"><span class="box">Público geral</span></label><label class="pill"><input type="radio" name="categoria" value="Kids"><span class="box">Kids</span></label></div><div class="error-msg">Escolha sua categoria.</div></div>
-      <div class="field" id="f-tamanho" style="display:none"><label>Tamanho da camiseta</label><select id="tamanho"><option value="">Selecione</option><option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option></select><div class="error-msg">Escolha o tamanho da camiseta.</div></div>
+      <div class="field" id="f-categoria"><label>Categoria</label><div class="pills"><label class="pill"><input type="radio" name="categoria" value="Geral"><span class="box">Público geral</span></label><label class="pill"><input type="radio" name="categoria" value="Kids"><span class="box">Kids</span></label></div><div class="error-msg">Selecione uma categoria.</div></div>
+      <div class="field" id="f-tamanho" style="display:none"><label>Tamanho da camiseta</label><select id="tamanho"><option value="">Selecione</option><option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option></select><div class="error-msg">Selecione o tamanho da camiseta.</div></div>
       <div class="field"><label>Quer ofertar um valor extra? <span class="hint">opcional — o Ministério Proclame agradece</span></label><input type="number" id="extra" min="0" placeholder="R$ 0,00"></div>
       <div class="total-bar"><span class="label">Total da inscrição</span><span class="val" id="totalVal">R$40</span></div>
-      <div class="field" id="f-termos"><label>Termo de responsabilidade</label><div class="terms-box"><p>Estou ciente de que participarei de um evento de corrida de rua, cujo percurso é de meu conhecimento, e que me encontro em plenas condições físicas e psicológicas para participar.</p><p>Entendo que a organização não se responsabiliza por lesões ou eventos decorrentes de minha participação, fora do ambiente e do controle direto da equipe responsável.</p><p>Li e concordo com as regras importantes, os direitos de imagem e a política de cancelamento descritos na seção "Antes de se inscrever" acima.</p></div><label class="check-row"><input type="checkbox" id="aceite"><span>Declaro que li, compreendi e aceito integralmente os termos acima.</span></label><div class="error-msg">É preciso aceitar os termos para se inscrever.</div></div>
+      <div class="field" id="f-termos"><label>Termo de responsabilidade</label><div class="terms-box"><p>Estou ciente de que participarei de um evento de corrida de rua, cujo percurso é de meu conhecimento e compreendo os riscos envolvidos no esporte. Declaro que estou em condições físicas adequadas para participar, isentando a organização de qualquer responsabilidade por lesões ou danos decorrentes de minha participação, salvo os previstos por lei. Concordo também com as regras, horários e condições do evento.</p><ul><li>O uso de água e alimentação nos pontos de hidratação é de responsabilidade do participante.</li><li>A organização poderá alterar data, horário ou percurso por motivos de segurança.</li><li>Viagens, hospedagem e deslocamento não são inclusos na inscrição.</li></ul></div><div class="check-row"><input type="checkbox" id="aceite"><label for="aceite">Li e concordo com o termo.</label></div><div class="error-msg">Você precisa aceitar o termo de responsabilidade.</div></div>
       <button type="submit" class="submit-btn">Confirmar inscrição →</button>
     </form>
     <div class="confirm" id="confirm">
@@ -204,10 +205,10 @@
   </section>
   <section>
     <div class="eyebrow">Curiosidades</div>
-    <div class="info-card"><h3>Treine com a família Proclame antes da prova</h3><p>Entre no grupo do GymRats, compartilhe seus treinos até o dia da corrida e concorra a prêmios incríveis.</p><a class="gym-btn" href="https://share.gymrats.app/join?code=ACGODKMS" target="_blank">Entrar no GymRats</a></div>
+    <div class="info-card"><h3>Treine com a família Proclame antes da prova</h3><p>Entre no grupo do GymRats, compartilhe seus treinos até o dia da corrida e concorra a prêmios incríveis.</p><a class="gym-btn" href="https://chat.whatsapp.com/" target="_blank">Entrar no grupo</a></div>
   </section>
 </div>
-<div class="footer-section wrap"><h3>Ministério de Jovens e Adolescentes</h3><p>Igreja da Promessa Vila Maria.<br>Dúvidas? <a href="https://api.whatsapp.com/send/?phone=5511997472685&text&type=phone_number&app_absent=0" target="_blank">Chame no WhatsApp</a>.</p></div>
+<div class="footer-section wrap"><h3>Ministério de Jovens e Adolescentes</h3><p>Igreja da Promessa Vila Maria.<br>Dúvidas? <a href="https://api.whatsapp.com/send/?phone=5511997472685&text&type=phone_number&app_absent=0">Fale conosco</a></p></div>
 <footer>O PROCLAME RUN 5K — 22 DE NOVEMBRO DE 2026</footer>
 <script>
   const SHEETS_WEBHOOK_URL = "";
@@ -217,8 +218,8 @@
   const extraInput = document.getElementById('extra');
   const totalVal = document.getElementById('totalVal');
   let selectedLote = lotes[0];
-  function updateTotal(){const base = parseInt(selectedLote.dataset.price, 10); const extra = parseFloat(extraInput.value) || 0; totalVal.textContent = `R$${(base + extra).toFixed(2).replace(/\.00$/,'')}`; tamanhoField.style.display = selectedLote.dataset.shirt === "1" ? "block" : "none"; }
-  lotes.forEach(l => l.addEventListener('click', () => { lotes.forEach(x => x.classList.remove('active')); l.classList.add('active'); selectedLote = l; updateTotal(); }));
+  function updateTotal(){const base = parseInt(selectedLote.dataset.price, 10); const extra = parseFloat(extraInput.value) || 0; totalVal.textContent = `R$${(base + extra).toFixed(2).replace(/\.00$/, '')}`;}
+  lotes.forEach(l => l.addEventListener('click', () => { lotes.forEach(x => x.classList.remove('active')); l.classList.add('active'); selectedLote = l; updateTotal(); if(selectedLote.dataset.shirt === '1'){document.getElementById('f-tamanho').style.display='block';} else {document.getElementById('f-tamanho').style.display='none'; document.getElementById('tamanho').value='';}}));
   extraInput.addEventListener('input', updateTotal);
   function clearErrors(){document.querySelectorAll('.field.invalid').forEach(f => f.classList.remove('invalid'));}
   document.getElementById('form').addEventListener('submit', function(e){
@@ -249,7 +250,7 @@
       <div><span class="k">Lote</span><span class="v">${esc(loteNome)}</span></div>
       ${needsShirt ? `<div><span class="k">Tamanho</span><span class="v">${esc(tamanho)}</span></div>` : ''}
       ${extra > 0 ? `<div><span class="k">Oferta extra</span><span class="v">R$${extra.toFixed(2)}</span></div>` : ''}
-      <div><span class="k">Total</span><span class="v">R$${total.toFixed(2).replace(/\.00$/,'')}</span></div>
+      <div><span class="k">Total</span><span class="v">R$${total.toFixed(2).replace(/\.00$/, '')}</span></div>
     `;
     let msg = `Olá Victor! Segue meu comprovante da inscrição no Proclame Run 5K 🏃%0A%0A`;
     msg += `*Nome:* ${nome}%0A*Categoria:* ${categoria}%0A*Lote:* ${loteNome}%0A`;
@@ -257,12 +258,12 @@
     if(extra > 0) msg += `*Oferta extra:* R$${extra.toFixed(2)}%0A`;
     msg += `*Total:* R$${total.toFixed(2)}`;
     document.getElementById('waLink').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-    if(SHEETS_WEBHOOK_URL){fetch(SHEETS_WEBHOOK_URL,{method:'POST',body:JSON.stringify({nome,whats,categoria,loteNome,tamanho,extra,total}),headers:{'Content-Type':'application/json'}}).catch(()=>{});} 
+    if(SHEETS_WEBHOOK_URL){fetch(SHEETS_WEBHOOK_URL,{method:'POST',body:JSON.stringify({nome,whats,categoria,loteNome,tamanho,extra,total}),headers:{'Content-Type':'application/json'}}).catch(()=>{});}
     document.getElementById('form').classList.add('hide');
     document.getElementById('confirm').classList.add('show');
   });
-  document.getElementById('againBtn').addEventListener('click', function(){document.getElementById('form').reset();document.getElementById('form').classList.remove('hide');document.getElementById('confirm').classList.remove('show');clearErrors();lotes.forEach(x => x.classList.remove('active'));lotes[0].classList.add('active');selectedLote = lotes[0];updateTotal();});
-  document.getElementById('copyPix').addEventListener('click', function(){navigator.clipboard.writeText('11997472685').then(()=>{this.textContent='Copiado!'; setTimeout(()=> this.textContent='Copiar',1500);});});
+  document.getElementById('againBtn').addEventListener('click', function(){document.getElementById('form').reset();document.getElementById('form').classList.remove('hide');document.getElementById('confirm').classList.remove('show');document.getElementById('f-tamanho').style.display='none';document.getElementById('tamanho').value='';selectedLote = lotes[0]; lotes.forEach(x => x.classList.remove('active')); selectedLote.classList.add('active'); updateTotal();});
+  document.getElementById('copyPix').addEventListener('click', function(){navigator.clipboard.writeText('11997472685').then(()=>{this.textContent='Copiado!'; setTimeout(()=> this.textContent='Copiar', 1400);}).catch(()=>{this.textContent='Erro'; setTimeout(()=> this.textContent='Copiar', 1400);});});
   function esc(str){const d=document.createElement('div'); d.textContent=str; return d.innerHTML;}
   function openLightbox(src){document.getElementById('lightboxImg').src = src; document.getElementById('lightbox').classList.add('show');}
   function closeLightbox(){document.getElementById('lightbox').classList.remove('show');}
