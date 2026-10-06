@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Camiseta Proclame Run 5K">
+  <defs>
+    <linearGradient id="shirtBody" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0f0f10"/>
+      <stop offset="50%" stop-color="#1e1f22"/>
+      <stop offset="100%" stop-color="#090909"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#d4ff2d"/>
+      <stop offset="100%" stop-color="#b8f217"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="#dfe1e3"/>
+
+  <g transform="translate(185,40)">
+    <path d="M180 40 L70 120 L30 180 L30 760 C30 800 65 830 105 830 L705 830 C745 830 780 800 780 760 L780 180 L740 120 L640 40 L540 90 L480 55 L330 55 L270 90 Z" fill="url(#shirtBody)" stroke="#111" stroke-width="4"/>
+
+    <path d="M180 40 L80 130 L250 215 L250 350 L150 410 L80 220 L70 120 Z" fill="#0a0a0b"/>
+    <path d="M640 40 L740 130 L570 215 L570 350 L670 410 L740 220 L750 120 Z" fill="#0a0a0b"/>
+
+    <path d="M220 358 L250 600 L230 760 L160 760 L160 495 L120 358 Z" fill="#0a0a0b"/>
+    <path d="M600 358 L570 600 L590 760 L660 760 L660 495 L700 358 Z" fill="#0a0a0b"/>
+
+    <g transform="translate(0,10)">
+      <path d="M145 160 L330 160 L390 245 L410 245 L470 160 L650 160 L645 240 L595 240 L520 340 L475 245 L425 245 L372 340 L323 245 L275 245 L205 340 L145 240 Z" fill="#0f0f10"/>
+      <path d="M316 180 L395 250 L468 180 L542 250 L620 180 L635 235 L530 310 L475 245 L425 245 L370 310 L265 235 Z" fill="#111"/>
+      <path d="M152 160 L330 160 L390 245 L410 245 L470 160 L650 160 L645 240 L595 240 L520 340 L475 245 L425 245 L372 340 L323 245 L275 245 L205 340 L145 240 Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+    </g>
+
+    <g font-family="Arial Black, Impact, sans-serif" text-anchor="middle" font-weight="900">
+      <text x="405" y="455" fill="#f6f7f6" font-size="82" letter-spacing="2">O PRCLM</text>
+      <text x="405" y="515" fill="url(#greenGrad)" font-size="88" letter-spacing="1.5">RUN</text>
+      <text x="405" y="560" fill="#ffffff" font-size="22" letter-spacing="2">1 CORÍNTIOS 9. 24-25</text>
+    </g>
+
+    <g transform="translate(0,0)">
+      <path d="M260 250 L330 250 L365 215 L395 250 L470 250 L500 215 L548 250 L620 250 L586 300 L530 300 L500 340 L480 300 L390 300 L360 340 L330 300 L275 300 Z" fill="#111" opacity="0.9"/>
+      <g transform="translate(350,255)">
+        <path d="M0 0 L75 0" stroke="#d9ff3d" stroke-width="12" stroke-linecap="round"/>
+        <path d="M14 -18 L88 -18" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+        <path d="M28 -36 L102 -36" stroke="#d9ff3d" stroke-width="8" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+</svg>
