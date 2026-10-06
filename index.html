@@ -161,8 +161,24 @@
   .lightbox .close-x:hover{transform:scale(1.2);}
 
   .logo-fixed{
-    position:fixed; bottom:18px; right:18px; width:46px; z-index:40;
-    opacity:0.92;
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    width:50px;
+    height:50px;
+    z-index:40;
+    opacity:0.85;
+    transition:all .3s ease;
+  }
+  .logo-fixed:hover{
+    opacity:1;
+    transform:scale(1.1);
+  }
+  .logo-fixed img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
   }
 
   /* -------- Section headers -------- */
@@ -408,6 +424,12 @@
     .kit-strip{grid-template-columns:1fr;}
     .kit-item img{height:260px;}
     h1.title{white-space:normal;}
+    .logo-fixed{
+      width:40px;
+      height:40px;
+      bottom:16px;
+      right:16px;
+    }
   }
 </style>
 </head>
@@ -442,7 +464,9 @@
   </div>
 </div>
 
-<img class="logo-fixed" src="logo-proclame.svg" alt="Logo O Proclame">
+<div class="logo-fixed">
+  <img src="logo-proclame.svg" alt="Logo O Proclame">
+</div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <span class="close-x">✕</span>
