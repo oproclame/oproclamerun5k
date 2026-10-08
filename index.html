@@ -136,7 +136,7 @@
   .countdown{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 18px;margin:0 0 18px;text-align:center;position:relative;}
   .countdown::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:6px;background:var(--green);}
   .countdown .cd-label{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:10px;}
-  .cd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-left:10px;}
+  .cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding-left:10px;}
   .cd-box{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:12px 6px 10px;}
   .cd-num{font-family:'Anton',sans-serif;font-size:clamp(34px,10vw,46px);line-height:1;color:var(--green);filter:drop-shadow(0 0 8px rgba(207,255,26,0.3));}
   .cd-unit{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-top:6px;}
@@ -167,6 +167,7 @@
       <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-unit">Dias</div></div>
       <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-unit">Horas</div></div>
       <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-unit">Minutos</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-unit">Segundos</div></div>
     </div>
   </div>
   <p class="hero-desc">Corrida de rua de 5K aberta ao público geral e kids.</p>
@@ -331,13 +332,14 @@
   function closeLightbox(){document.getElementById('lightbox').classList.remove('show');}
   (function(){
     const target = new Date('2026-11-22T08:30:00-03:00').getTime();
-    const d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),m=document.getElementById('cd-m');
+    const d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),m=document.getElementById('cd-m'),sec=document.getElementById('cd-s');
     const box=document.getElementById('countdown');
     const pad=n=>String(n).padStart(2,'0');
     function tick(){
       const diff=target-Date.now();
       if(diff<=0){box.innerHTML='<div class="cd-done">É hoje! Boa corrida 🏃</div>';clearInterval(t);return;}
-      const mins=Math.floor(diff/60000);
+      const mins=Math.flooconst mins=Math.floor(diff/60000);
+            sec.textContent=pad(Math.floor((diff%60000)/1000));r(diff/60000);
       d.textContent=pad(Math.floor(mins/1440));
       h.textContent=pad(Math.floor((mins%1440)/60));
       m.textContent=pad(mins%60);
