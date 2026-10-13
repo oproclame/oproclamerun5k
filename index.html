@@ -274,7 +274,7 @@
 <div class="footer-section wrap"><h3>Ministério de Jovens e Adolescentes</h3><p>Igreja da Promessa Vila Maria.<br>Dúvidas? <a href="https://api.whatsapp.com/send/?phone=5511997472685&text&type=phone_number&app_absent=0">Fale conosco</a></p></div>
 <footer>O PROCLAME RUN 5K — 22 DE NOVEMBRO DE 2026</footer>
 <script>
-  const SHEETS_WEBHOOK_URL = "";
+  const SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwE4EvRv-eD9KaVZVpbEHK4XC9C4hPjKS_Izq6yvV_IGvBblSvBAEkBFBbuyk2Kw9l4/exec";
   const WHATSAPP_NUMBER = "5511997472685";
   const lotes = document.querySelectorAll('.lote');
   const tamanhoField = document.getElementById('f-tamanho');
@@ -321,7 +321,7 @@
     if(extra > 0) msg += `*Oferta extra:* R$${extra.toFixed(2)}%0A`;
     msg += `*Total:* R$${total.toFixed(2)}`;
     document.getElementById('waLink').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-    if(SHEETS_WEBHOOK_URL){fetch(SHEETS_WEBHOOK_URL,{method:'POST',body:JSON.stringify({nome,whats,categoria,loteNome,tamanho,extra,total}),headers:{'Content-Type':'application/json'}}).catch(()=>{});}
+    if(SHEETS_WEBHOOK_URL){fetch(SHEETS_WEBHOOK_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({nome,whats,categoria,loteNome,tamanho,extra,total}),headers:{'Content-Type':'text/plain;charset=utf-8'}}).catch(()=>{});}
     document.getElementById('form').classList.add('hide');
     document.getElementById('confirm').classList.add('show');
   });
