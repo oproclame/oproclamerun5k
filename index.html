@@ -152,6 +152,12 @@
   .sponsor-contact{display:block;padding:10px 8px 12px;font-size:11px;font-weight:700;color:var(--green);text-align:center;text-decoration:none;word-break:break-word;background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);}
   a.sponsor-contact:hover{text-decoration:underline;}
   @media (max-width:480px){.sponsor-item{flex-basis:calc((100% - 16px)/2);}.kit-strip{grid-template-columns:1fr;}.kit-item img{height:260px;}h1.title{font-size:clamp(32px,12vw,52px);} .logo-fixed{width:58px;height:58px;bottom:14px;right:14px;}}
+  .deadline-note{display:inline-flex;align-items:center;gap:8px;background:rgba(207,255,26,0.08);border:1px solid rgba(207,255,26,0.35);color:var(--green);border-radius:12px;padding:10px 14px;font-size:13px;font-weight:700;margin-bottom:16px;}
+  .closed-box{display:none;background:var(--panel);border:2px solid rgba(255,90,90,0.5);border-radius:var(--radius);padding:24px 20px;text-align:center;}
+  .closed-box.show{display:block;}
+  .closed-box h3{font-size:22px;margin-bottom:8px;color:#ff6b6b;}
+  .closed-box p{color:var(--gray);font-size:14px;margin:0;}
+  .bib-grid .item.full{grid-column:1 / -1;}
 </style>
 </head>
 <body>
@@ -177,6 +183,7 @@
       <div class="item"><div class="k">Largada</div><div class="v">08h30</div></div>
       <div class="item"><div class="k">Distância</div><div class="v">5K</div></div>
       <div class="item"><div class="k">Local</div><div class="v">C.O. Thomaz Mazzoni</div></div>
+      <div class="item full"><div class="k">Inscrições até</div><div class="v" id="deadlineHero">06/11 (sexta-feira)</div></div>
     </div>
     <a class="map-link" href="https://maps.app.goo.gl/PNNcz8LSWmVxFqaK8" target="_blank">📍 Como chegar</a>
   </div>
@@ -236,6 +243,7 @@
   <section>
     <div class="eyebrow">Inscrições</div>
     <h2 class="sec-title">Escolha seu lote</h2>
+    <div class="deadline-note" id="deadlineNote">⏰ Inscrições abertas até 06/11 às 23h59</div>
     <div class="lotes" id="lotes">
       <div class="lote active" data-price="40" data-shirt="0"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito</span><span class="price">R$40</span></div><div class="lote-desc">Inscrição standard com medalha, lanche e número de peito.</div></div>
       <div class="lote" data-price="70" data-shirt="1"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito + Camiseta</span><span class="price">R$70</span></div><div class="lote-desc">Inclui a camiseta oficial do evento em tamanho escolhido.</div></div>
@@ -254,6 +262,10 @@
       <div class="field" id="f-termos"><label>Termo de responsabilidade</label><div class="terms-box"><p>Estou ciente de que participarei de um evento de corrida de rua, cujo percurso é de meu conhecimento e compreendo os riscos envolvidos no esporte. Declaro que estou em condições físicas adequadas para participar, isentando a organização de qualquer responsabilidade por lesões ou danos decorrentes de minha participação, salvo os previstos por lei. Concordo também com as regras, horários e condições do evento.</p><ul><li>O uso de água e alimentação nos pontos de hidratação é de responsabilidade do participante.</li><li>A organização poderá alterar data, horário ou percurso por motivos de segurança.</li><li>Viagens, hospedagem e deslocamento não são inclusos na inscrição.</li></ul></div><div class="check-row"><input type="checkbox" id="aceite"><label for="aceite">Li e concordo com o termo.</label></div><div class="error-msg">Você precisa aceitar o termo de responsabilidade.</div></div>
       <button type="submit" class="submit-btn">Confirmar inscrição →</button>
     </form>
+    <div class="closed-box" id="closedBox">
+      <h3>Inscrições encerradas</h3>
+      <p>O prazo para inscrições terminou em 06/11. Dúvidas? Fale com a organização pelo WhatsApp no rodapé da página.</p>
+    </div>
     <div class="confirm" id="confirm">
       <div class="stamp">✓</div>
       <h2 class="sec-title">Inscrição pronta!</h2>
@@ -261,7 +273,7 @@
       <div class="summary" id="summaryBox"></div>
       <div class="pix-box"><div class="k">CHAVE PIX (NUBANK)</div><div class="pix-row"><span class="key">11997472685</span><button type="button" class="copy-btn" id="copyPix">Copiar</button></div></div>
       <a href="#" id="waLink" target="_blank" class="wa-btn">Enviar comprovante no WhatsApp</a>
-      <p style="color:var(--gray);font-size:12px;">Inscrições encerram em 15/11 (domingo) às 23h59. Envie o comprovante imediatamente para garantir sua vaga.</p>
+      <p style="color:var(--gray);font-size:12px;">Inscrições encerram em 06/11 (sexta-feira) às 23h59. Envie o comprovante imediatamente para garantir sua vaga.</p>
       <p class="thanks">O Ministério Proclame agradece!</p>
       <button type="button" class="again-btn" id="againBtn">Fazer outra inscrição</button>
     </div>
@@ -276,6 +288,19 @@
 <script>
   const SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwE4EvRv-eD9KaVZVpbEHK4XC9C4hPjKS_Izq6yvV_IGvBblSvBAEkBFBbuyk2Kw9l4/exec";
   const WHATSAPP_NUMBER = "5511997472685";
+  // Prazo final das inscrições: 06/11/2026 às 23h59 (horário de Brasília)
+  const DEADLINE = new Date('2026-11-06T23:59:59-03:00').getTime();
+  const isClosed = () => Date.now() > DEADLINE;
+  function applyClosed(){
+    if(!isClosed()) return;
+    document.getElementById('lotes').style.display = 'none';
+    document.getElementById('deadlineNote').style.display = 'none';
+    document.getElementById('form').style.display = 'none';
+    document.getElementById('confirm').classList.remove('show');
+    document.getElementById('closedBox').classList.add('show');
+    const dh = document.getElementById('deadlineHero');
+    if(dh) dh.textContent = 'Encerradas';
+  }
   const lotes = document.querySelectorAll('.lote');
   const tamanhoField = document.getElementById('f-tamanho');
   const extraInput = document.getElementById('extra');
@@ -287,6 +312,7 @@
   function clearErrors(){document.querySelectorAll('.field.invalid').forEach(f => f.classList.remove('invalid'));}
   document.getElementById('form').addEventListener('submit', function(e){
     e.preventDefault(); clearErrors();
+    if(isClosed()){ applyClosed(); return; }
     const nome = document.getElementById('nome').value.trim();
     const whats = document.getElementById('whats').value.trim();
     const catEl = document.querySelector('input[name="categoria"]:checked');
@@ -348,6 +374,8 @@
     var t=setInterval(tick,1000);
   })();
   updateTotal();
+  applyClosed();
+  setInterval(applyClosed, 30000);
 </script>
 </body>
 </html>
