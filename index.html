@@ -158,6 +158,17 @@
   .closed-box h3{font-size:22px;margin-bottom:8px;color:#ff6b6b;}
   .closed-box p{color:var(--gray);font-size:14px;margin:0;}
   .bib-grid .item.full{grid-column:1 / -1;}
+  .size-guide{margin-top:10px;}
+  .size-guide summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--green);list-style:none;display:inline-flex;align-items:center;gap:6px;}
+  .size-guide summary::-webkit-details-marker{display:none;}
+  .size-guide summary::after{content:"▾";transition:transform .2s ease;}
+  .size-guide[open] summary::after{transform:rotate(180deg);}
+  .size-table{width:100%;border-collapse:collapse;margin-top:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px;text-align:center;}
+  .size-table th{background:var(--panel-2);color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700;padding:10px 6px;}
+  .size-table th small{display:block;color:var(--gray);font-size:10px;letter-spacing:0.5px;text-transform:none;font-weight:600;}
+  .size-table td{padding:8px 6px;border-top:1px solid var(--line);}
+  .size-table td:first-child{font-weight:800;}
+  .size-note{color:var(--gray);font-size:11px;margin-top:6px;}
 </style>
 </head>
 <body>
@@ -256,7 +267,7 @@
       <div class="field" id="f-nome"><label>Nome completo</label><input type="text" id="nome" placeholder="Seu nome como sairá no número de peito"><div class="error-msg">Digite seu nome completo.</div></div>
       <div class="field" id="f-whats"><label>WhatsApp</label><input type="tel" id="whats" placeholder="11 9XXXX-XXXX"><div class="error-msg">Informe um WhatsApp válido.</div></div>
       <div class="field" id="f-categoria"><label>Categoria</label><div class="pills"><label class="pill"><input type="radio" name="categoria" value="Geral"><span class="box">Público geral</span></label><label class="pill"><input type="radio" name="categoria" value="Kids"><span class="box">Kids</span></label></div><div class="error-msg">Selecione uma categoria.</div></div>
-      <div class="field" id="f-tamanho" style="display:none"><label>Tamanho da camiseta</label><select id="tamanho"><option value="">Selecione</option><option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option></select><div class="error-msg">Selecione o tamanho da camiseta.</div></div>
+      <div class="field" id="f-tamanho" style="display:none"><label>Tamanho da camiseta</label><select id="tamanho"><option value="">Selecione</option><option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option><option>XG</option><option>XGG</option><option>XGGG</option></select><details class="size-guide"><summary>📏 Ver tabela de medidas</summary><table class="size-table"><thead><tr><th>Tamanho</th><th>Comprimento<small>Altura (cm)</small></th><th>Largura<small>Tórax (cm)</small></th></tr></thead><tbody><tr><td>PP</td><td>65,0</td><td>50,0</td></tr><tr><td>P</td><td>67,0</td><td>52,0</td></tr><tr><td>M</td><td>69,0</td><td>54,0</td></tr><tr><td>G</td><td>71,0</td><td>56,0</td></tr><tr><td>GG</td><td>73,0</td><td>60,0</td></tr><tr><td>XG</td><td>75,0</td><td>62,0</td></tr><tr><td>XGG</td><td>78,0</td><td>65,0</td></tr><tr><td>XGGG</td><td>81,0</td><td>68,0</td></tr></tbody></table><div class="size-note">Medidas da peça acabada, em centímetros.</div></details><div class="error-msg">Selecione o tamanho da camiseta.</div></div>
       <div class="field"><label>Quer ofertar um valor extra? <span class="hint">opcional — o Ministério Proclame agradece</span></label><input type="number" id="extra" min="0" placeholder="R$ 0,00"></div>
       <div class="total-bar"><span class="label">Total da inscrição</span><span class="val" id="totalVal">R$30</span></div>
       <div class="field" id="f-termos"><label>Termo de responsabilidade</label><div class="terms-box"><p>Estou ciente de que participarei de um evento de corrida de rua, cujo percurso é de meu conhecimento e compreendo os riscos envolvidos no esporte. Declaro que estou em condições físicas adequadas para participar, isentando a organização de qualquer responsabilidade por lesões ou danos decorrentes de minha participação, salvo os previstos por lei. Concordo também com as regras, horários e condições do evento.</p><ul><li>O uso de água e alimentação nos pontos de hidratação é de responsabilidade do participante.</li><li>A organização poderá alterar data, horário ou percurso por motivos de segurança.</li><li>Viagens, hospedagem e deslocamento não são inclusos na inscrição.</li></ul></div><div class="check-row"><input type="checkbox" id="aceite"><label for="aceite">Li e concordo com o termo.</label></div><div class="error-msg">Você precisa aceitar o termo de responsabilidade.</div></div>
