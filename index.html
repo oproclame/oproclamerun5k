@@ -194,7 +194,7 @@
       <div class="item"><div class="k">Largada</div><div class="v">08h30</div></div>
       <div class="item"><div class="k">Distância</div><div class="v">5K</div></div>
       <div class="item"><div class="k">Local</div><div class="v">C.O. Thomaz Mazzoni</div></div>
-      <div class="item full"><div class="k">Inscrições até</div><div class="v" id="deadlineHero">16/11 (segunda-feira)</div></div>
+      <div class="item full"><div class="k">Inscrições até</div><div class="v" id="deadlineHero">18/11 (quarta-feira)</div></div>
     </div>
     <a class="map-link" href="https://maps.app.goo.gl/PNNcz8LSWmVxFqaK8" target="_blank">📍 Como chegar</a>
   </div>
@@ -254,7 +254,7 @@
   <section>
     <div class="eyebrow">Inscrições</div>
     <h2 class="sec-title">Escolha seu lote</h2>
-    <div class="deadline-note" id="deadlineNote">⏰ Inscrições abertas até 06/11 às 23h59</div>
+    <div class="deadline-note" id="deadlineNote">⏰ Inscrições abertas até 18/11 às 23h59</div>
     <div class="lotes" id="lotes">
       <div class="lote active" data-price="30" data-shirt="0"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito</span><span class="price">R$30</span></div><div class="lote-desc">Inscrição standard com medalha, lanche e número de peito.</div></div>
       <div class="lote" data-price="60" data-shirt="1"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito + Camiseta</span><span class="price">R$60</span></div><div class="lote-desc">Inclui a camiseta oficial do evento em tamanho escolhido.</div></div>
@@ -275,7 +275,7 @@
     </form>
     <div class="closed-box" id="closedBox">
       <h3>Inscrições encerradas</h3>
-      <p>O prazo para inscrições terminou em 06/11. Dúvidas? Fale com a organização pelo WhatsApp no rodapé da página.</p>
+      <p>O prazo para inscrições terminou em 18/11. Dúvidas? Fale com a organização pelo WhatsApp no rodapé da página.</p>
     </div>
     <div class="confirm" id="confirm">
       <div class="stamp">✓</div>
@@ -284,7 +284,7 @@
       <div class="summary" id="summaryBox"></div>
       <div class="pix-box"><div class="k">CHAVE PIX (NUBANK)</div><div class="pix-row"><span class="key">11997472685</span><button type="button" class="copy-btn" id="copyPix">Copiar</button></div></div>
       <a href="#" id="waLink" target="_blank" class="wa-btn">Enviar comprovante no WhatsApp</a>
-      <p style="color:var(--gray);font-size:12px;">Inscrições encerram em 06/11 (sexta-feira) às 23h59. Envie o comprovante imediatamente para garantir sua vaga.</p>
+      <p style="color:var(--gray);font-size:12px;">Inscrições encerram em 18/11 (quarta-feira) às 23h59. Envie o comprovante imediatamente para garantir sua vaga.</p>
       <p class="thanks">O Ministério Proclame agradece!</p>
       <button type="button" class="again-btn" id="againBtn">Fazer outra inscrição</button>
     </div>
@@ -299,8 +299,8 @@
 <script>
   const SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwE4EvRv-eD9KaVZVpbEHK4XC9C4hPjKS_Izq6yvV_IGvBblSvBAEkBFBbuyk2Kw9l4/exec";
   const WHATSAPP_NUMBER = "5511997472685";
-  // Prazo final das inscrições: 06/11/2026 às 23h59 (horário de Brasília)
-  const DEADLINE = new Date('2026-11-06T23:59:59-03:00').getTime();
+  // Prazo final das inscrições: 18/11/2026 às 23h59 (horário de Brasília)
+  const DEADLINE = new Date('2026-11-18T23:59:59-03:00').getTime();
   const isClosed = () => Date.now() > DEADLINE;
   function applyClosed(){
     if(!isClosed()) return;
