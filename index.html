@@ -194,7 +194,7 @@
       <div class="item"><div class="k">Largada</div><div class="v">08h30</div></div>
       <div class="item"><div class="k">Distância</div><div class="v">5K</div></div>
       <div class="item"><div class="k">Local</div><div class="v">C.O. Thomaz Mazzoni</div></div>
-      <div class="item full"><div class="k">Inscrições até</div><div class="v" id="deadlineHero">18/11 (quarta-feira)</div></div>
+      <div class="item full"><div class="k">Inscrições até</div><div class="v" id="deadlineHero">Encerradas</div></div>
     </div>
     <a class="map-link" href="https://maps.app.goo.gl/PNNcz8LSWmVxFqaK8" target="_blank">📍 Como chegar</a>
   </div>
@@ -254,8 +254,8 @@
   <section>
     <div class="eyebrow">Inscrições</div>
     <h2 class="sec-title">Escolha seu lote</h2>
-    <div class="deadline-note" id="deadlineNote">⏰ Inscrições abertas até 18/11 às 23h59</div>
-    <div class="lotes" id="lotes">
+    <div class="deadline-note" id="deadlineNote" style="display:none">⏰ Inscrições abertas até 18/11 às 23h59</div>
+    <div class="lotes" id="lotes" style="display:none">
       <div class="lote active" data-price="30" data-shirt="0"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito</span><span class="price">R$30</span></div><div class="lote-desc">Inscrição standard com medalha, lanche e número de peito.</div></div>
       <div class="lote" data-price="60" data-shirt="1"><div class="lote-top"><span class="name">Medalha + Lanche + Nº de peito + Camiseta</span><span class="price">R$60</span></div><div class="lote-desc">Inclui a camiseta oficial do evento em tamanho escolhido.</div></div>
     </div>
@@ -263,7 +263,7 @@
   <section>
     <div class="eyebrow">Formulário</div>
     <h2 class="sec-title">Sua inscrição</h2>
-    <form id="form" novalidate>
+    <form id="form" novalidate style="display:none">
       <div class="field" id="f-nome"><label>Nome completo</label><input type="text" id="nome" placeholder="Seu nome como sairá no número de peito"><div class="error-msg">Digite seu nome completo.</div></div>
       <div class="field" id="f-whats"><label>WhatsApp</label><input type="tel" id="whats" placeholder="11 9XXXX-XXXX"><div class="error-msg">Informe um WhatsApp válido.</div></div>
       <div class="field" id="f-categoria"><label>Categoria</label><div class="pills"><label class="pill"><input type="radio" name="categoria" value="Geral"><span class="box">Público geral</span></label><label class="pill"><input type="radio" name="categoria" value="Kids"><span class="box">Kids</span></label></div><div class="error-msg">Selecione uma categoria.</div></div>
@@ -273,9 +273,9 @@
       <div class="field" id="f-termos"><label>Termo de responsabilidade</label><div class="terms-box"><p>Estou ciente de que participarei de um evento de corrida de rua, cujo percurso é de meu conhecimento e compreendo os riscos envolvidos no esporte. Declaro que estou em condições físicas adequadas para participar, isentando a organização de qualquer responsabilidade por lesões ou danos decorrentes de minha participação, salvo os previstos por lei. Concordo também com as regras, horários e condições do evento.</p><ul><li>O uso de água e alimentação nos pontos de hidratação é de responsabilidade do participante.</li><li>A organização poderá alterar data, horário ou percurso por motivos de segurança.</li><li>Viagens, hospedagem e deslocamento não são inclusos na inscrição.</li></ul></div><div class="check-row"><input type="checkbox" id="aceite"><label for="aceite">Li e concordo com o termo.</label></div><div class="error-msg">Você precisa aceitar o termo de responsabilidade.</div></div>
       <button type="submit" class="submit-btn">Confirmar inscrição →</button>
     </form>
-    <div class="closed-box" id="closedBox">
+    <div class="closed-box show" id="closedBox">
       <h3>Inscrições encerradas</h3>
-      <p>O prazo para inscrições terminou em 18/11. Dúvidas? Fale com a organização pelo WhatsApp no rodapé da página.</p>
+      <p>As inscrições foram encerradas em 18/11. Obrigado a todos que se inscreveram! Dúvidas? Fale com a organização pelo WhatsApp no rodapé da página.</p>
     </div>
     <div class="confirm" id="confirm">
       <div class="stamp">✓</div>
@@ -299,9 +299,11 @@
 <script>
   const SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwE4EvRv-eD9KaVZVpbEHK4XC9C4hPjKS_Izq6yvV_IGvBblSvBAEkBFBbuyk2Kw9l4/exec";
   const WHATSAPP_NUMBER = "5511997472685";
-  // Prazo final das inscrições: 18/11/2026 às 23h59 (horário de Brasília)
+  // Inscrições ENCERRADAS manualmente pela organização em 18/11/2026.
+  // Para reabrir, mude INSCRICOES_ENCERRADAS para false (o prazo abaixo volta a valer).
+  const INSCRICOES_ENCERRADAS = true;
   const DEADLINE = new Date('2026-11-18T23:59:59-03:00').getTime();
-  const isClosed = () => Date.now() > DEADLINE;
+  const isClosed = () => INSCRICOES_ENCERRADAS || Date.now() > DEADLINE;
   function applyClosed(){
     if(!isClosed()) return;
     document.getElementById('lotes').style.display = 'none';
